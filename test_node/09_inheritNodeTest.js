@@ -26,6 +26,7 @@ Bar();
 
 var util = require('util');
 
+// 객체는 대문자로 시작하자...
 function InheritsTest() {
 }
 

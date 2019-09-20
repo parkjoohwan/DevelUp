@@ -1,0 +1,30 @@
+<!-- index.html -->
+<html>
+	<head>
+		<title>socket io 테스트 페이지</title>	
+	</head>
+	<body>
+		<p>
+			개발자도구 -> 콘솔에 무엇이 찍히는지 확인하자	
+		</p>
+		<p>
+			emit으로 news 이벤트를 발생시켜서 서버에서 json 형태로 데이터를 받아온다.
+		</p>
+		
+		<div id="data"></div>
+		
+	</body>	
+</html>
+
+<script src="/socket.io/socket.io.js"></script>
+		<script>
+		var socket = io.connect('https://develup-lyrgz.run.goorm.io/');
+					//구름ide 이용자는 localhost가 아닌 자신의 url을 입력. ex) http://test-1.run.goorm.io/ 
+
+		socket.on('news', function (data) {
+			console.log(data);
+			socket.emit('client login', { clientData : '클라이언트 접속' });
+			document.getElementById("data").innerText = JSON.stringify(data);
+		});
+
+</script>
